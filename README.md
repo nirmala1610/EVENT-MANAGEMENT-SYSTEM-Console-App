@@ -72,45 +72,37 @@ The application is designed with clean OOP principles, proper exception handling
 1. Clone the repository
    ```bash
    git clone <your-repo-url>
-Open in Eclipse / IntelliJ
+  Open in Eclipse / IntelliJ
 
-Run Main.java
+  Run Main.java
 
-Use menu options to interact with the system
+   Use menu options to interact with the system
 
-📊 Sample Operations
-Add Event
-
-Add Task to Event
-
-Add Staff
-
-Assign Staff to Task
-
-Record Task Progress
-
-Generate Event Summary Report
-
-Exit Application
-
-📌 Example Task Status Flow
-nginx
-Copy code
-PENDING → IN_PROGRESS → COMPLETED
-           ↓
-        DELAYED
-Illegal transitions like COMPLETED → PENDING are prevented.
+            📊 Sample Operations
+            Add Event
+            
+            Add Task to Event
+            
+            Add Staff
+            
+            Assign Staff to Task
+            
+            Record Task Progress
+            
+            Generate Event Summary Report
+            
+            Exit Application
 
 🎯 Purpose of Project
 This project was built as part of an academic assignment to demonstrate:
 
-Java programming skills
-
-OOP design
-
-Console-based application flow
-
-Real-world problem modeling
+      Java programming skills
+      
+      OOP design
+      
+      Console-based application flow
+      
+      Real-world problem modeling
 
 👨‍💻 Author
 Nirmaladevi S
