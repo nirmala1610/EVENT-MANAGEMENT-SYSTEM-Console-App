@@ -13,31 +13,37 @@ public class TaskUpdate {
 		this.date=date;
 		this.notes=notes;	
 	}
+	
 	public String getUpdateId() {
 		return updateId;
 	}
+	
 	public void setUpdateId(String updateId) {
 		this.updateId = updateId;
 	}
+	
 	public String getTaskId() {
 		return taskId;
 	}
+	
 	public void setTaskId(String taskId) {
 		this.taskId = taskId;
 	}
+	
 	public String getDate() {
 		return date;
 	}
+	
 	public void setDate(String date) {
 		this.date = date;
 	}
+	
 	public String getNotes() {
 		return notes;
 	}
+	
 	public void setNotes(String notes) {
 		this.notes = notes;
-	}
-	 
-	 
+	}	 
 
 }

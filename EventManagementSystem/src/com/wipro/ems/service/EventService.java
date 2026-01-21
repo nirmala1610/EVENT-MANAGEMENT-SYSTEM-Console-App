@@ -12,6 +12,7 @@ import com.wipro.ems.entity.TaskStatus;
 import com.wipro.ems.entity.TaskUpdate;
 
 import com.wipro.ems.util.*;
+
 public class EventService{
 
 	private ArrayList<Event> events;
@@ -109,6 +110,7 @@ public class EventService{
 		if(task.getAssignedStaffId() != null) {
 			throw new TaskNotFoundException("Task Already Assigned to other staff member");
 		}
+		
 		task.setAssignedStaffId(staffId);
 		task.setStatus(TaskStatus.IN_PROGRESS);
 	}
@@ -124,41 +126,41 @@ public class EventService{
 	    } catch (IllegalArgumentException e) {
 	        throw new InvalidTaskOperationException("Invalid task status");
 	    }
-	    if (currentStatus == TaskStatus.COMPLETED &&
-	        updatedStatus == TaskStatus.PENDING) {
+	    if (currentStatus == TaskStatus.COMPLETED && updatedStatus == TaskStatus.PENDING) {
 	        throw new InvalidTaskOperationException("Cannot change status from COMPLETED to PENDING");
 	    }
-
 	    task.setStatus(updatedStatus);
 	}
 	
-	public void recordTaskUpdate(String updateId, String taskId, String date, String notes)
-	        throws TaskNotFoundException, InvalidTaskOperationException {
+	public void recordTaskUpdate(String updateId, String taskId, String date, String notes)throws TaskNotFoundException, InvalidTaskOperationException {
 
-	    Task task = findTask(taskId); 
-
-	    if (notes == null || notes.trim().isEmpty()) {
+	    if(notes == null || notes.trim().isEmpty()) {
 	        throw new InvalidTaskOperationException("Update notes cannot be empty");
 	    }
-
-	    TaskUpdate update = new TaskUpdate(
-	            updateId,
-	            taskId,
-	            date,
-	            notes
-	    );
+	    
+	    TaskUpdate update = new TaskUpdate(updateId,taskId,date,notes);
 
 	    updates.add(update);
+	    
 	}
 	
 	public ArrayList<Task> getTasksForEvent(String eventId){
-		return tasks;
+		ArrayList<Task> eventTask = new ArrayList<>();
+		
+		for(Task task : tasks) {
+			if(task.getEventId().equals(eventId)) {
+				eventTask.add(task);
+			}
+		}
+		return eventTask;
 	}
 	
 	public String generateEventSummary(String eventId) {
-		 int totalTasks = 0;
+		    
+		    int totalTasks = 0;
 		    int completedTasks = 0;
 		    int pendingTasks = 0;
+		    
 		    Set<String> assignedStaff = new HashSet<>();
 		    List<String> criticalUpdates = new ArrayList<>();
 		    
@@ -192,23 +194,8 @@ public class EventService{
 	           "Completed Tasks: " + completedTasks + "\n" +
 	           "Pending Tasks: " + pendingTasks + "\n" +
 	           "Assigned Staff Count: " + assignedStaff.size() + "\n" +
-	           "Critical Updates: " + criticalUpdates.size() + "\n";
-		        
+	           "Critical Updates: " + criticalUpdates.size() + "\n";     
 		
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 	
 }
