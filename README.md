@@ -34,26 +34,24 @@ The application is designed with clean OOP principles, proper exception handling
 
 ## 📂 Project Structure
 
-src/
-├── com.wipro.ems.main
-│ └── Main.java
-│
-├── com.wipro.ems.entity
-│ ├── Event.java
-│ ├── Task.java
-│ ├── Staff.java
-│ ├── TaskUpdate.java
-│ └── TaskStatus.java
-│
-├── com.wipro.ems.service
-│ └── EventService.java
-│
-└── com.wipro.ems.util
-├── TaskNotFoundException.java
-└── InvalidTaskOperationException.java
+      src/
+      ├── com.wipro.ems.main
+      │ └── Main.java
+      │
+      ├── com.wipro.ems.entity
+      │ ├── Event.java
+      │ ├── Task.java
+      │ ├── Staff.java
+      │ ├── TaskUpdate.java
+      │ └── TaskStatus.java
+      │
+      ├── com.wipro.ems.service
+      │ └── EventService.java
+      │
+      └── com.wipro.ems.util
+      ├── TaskNotFoundException.java
+      └── InvalidTaskOperationException.java
 
-yaml
-Copy code
 
 ---
 
