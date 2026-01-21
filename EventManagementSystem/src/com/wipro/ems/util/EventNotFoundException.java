@@ -6,5 +6,4 @@ public class EventNotFoundException extends Exception{
 		super(message);
 	}
 	
-	
 }
